@@ -24,7 +24,7 @@ UPUSH.IOS_PUSH = METHOD(function() {
 			//REQUIRED: params.token
 			//OPTIONAL: params.badge
 			//OPTIONAL: params.sound
-			//OPTIONAL: params.message
+			//REQUIRED: params.message
 			//OPTIONAL: params.data
 
 			var

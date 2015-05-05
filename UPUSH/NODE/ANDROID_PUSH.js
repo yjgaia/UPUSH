@@ -17,7 +17,8 @@ UPUSH.ANDROID_PUSH = METHOD(function() {
 		run : function(params) {
 			//REQUIRED: params
 			//REQUIRED: params.regId
-			//OPTIONAL: params.data
+			//REQUIRED: params.title
+			//REQUIRED: params.message
 
 			var
 			// reg id
@@ -27,7 +28,10 @@ UPUSH.ANDROID_PUSH = METHOD(function() {
 			message = new gcm.Message({
 				delayWhileIdle : false,
 				timeToLive : 1800,
-				data : params.data
+				data : {
+					title : params.title,
+					message : params.message
+				}
 			});
 
 			sender.send(message, [regId], 5, function(error, result) {
