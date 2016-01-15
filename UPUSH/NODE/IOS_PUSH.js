@@ -11,9 +11,10 @@ UPUSH.IOS_PUSH = METHOD(function() {
 	if (NODE_CONFIG.UPUSH !== undefined && NODE_CONFIG.UPUSH.ios !== undefined) {
 
 		connection = new apn.Connection({
-			gateway : 'gateway.sandbox.push.apple.com',
 			cert : NODE_CONFIG.UPUSH.ios.certFilePath,
-			key : NODE_CONFIG.UPUSH.ios.keyFilePath
+			key : NODE_CONFIG.UPUSH.ios.keyFilePath,
+			production : CONFIG.isDevMode !== true,
+			passphrase : NODE_CONFIG.UPUSH.ios.password
 		});
 	}
 
@@ -40,7 +41,7 @@ UPUSH.IOS_PUSH = METHOD(function() {
 			noti.badge = params.badge;
 			noti.sound = params.sound;
 			noti.alert = params.message;
-			noti.payload = params.data;
+			noti.payload = params.data === undefined ? {} : params.data;
 
 			connection.pushNotification(noti, device);
 		}
