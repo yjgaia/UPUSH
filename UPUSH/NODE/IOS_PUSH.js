@@ -13,7 +13,7 @@ UPUSH.IOS_PUSH = METHOD(function() {
 		connection = new apn.Connection({
 			cert : NODE_CONFIG.UPUSH.ios.certFilePath,
 			key : NODE_CONFIG.UPUSH.ios.keyFilePath,
-			production : CONFIG.isDevMode !== true,
+			production : NODE_CONFIG.UPUSH.isDebugMode !== true,
 			passphrase : NODE_CONFIG.UPUSH.ios.password
 		});
 	}

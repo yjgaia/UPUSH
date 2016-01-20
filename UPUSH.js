@@ -8,6 +8,7 @@ BOOT({
 	},
 	NODE_CONFIG : {
 		UPUSH : {
+			isDebugMode : true,
 			ios : {
 				certFilePath : '{{CERT(.pem) FILE PATH}}',
 				keyFilePath : '{{KEY(.pem) FILE PATH}}',
