@@ -11,8 +11,14 @@ UPUSH.IOS_PUSH = METHOD(function() {
 	if (NODE_CONFIG.UPUSH !== undefined && NODE_CONFIG.UPUSH.ios !== undefined) {
 
 		connection = new apn.Connection({
-			cert : NODE_CONFIG.UPUSH.ios.certFilePath,
-			key : NODE_CONFIG.UPUSH.ios.keyFilePath,
+			cert : READ_FILE({
+				path : NODE_CONFIG.UPUSH.ios.certFilePath,
+				isSync : true
+			}),
+			key : READ_FILE({
+				path : NODE_CONFIG.UPUSH.ios.keyFilePath,
+				isSync : true
+			}),
 			production : NODE_CONFIG.UPUSH.isDebugMode !== true,
 			passphrase : NODE_CONFIG.UPUSH.ios.password
 		});
