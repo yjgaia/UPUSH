@@ -1,12 +1,8 @@
-UPUSH.IOS_PUSH = METHOD(function() {
-	'use strict';
+UPUSH.IOS_PUSH = METHOD(() => {
 
-	var
-	//IMPORT: apn
-	apn = require('apn'),
-
-	// connection
-	connection;
+	let apn = require('apn');
+	
+	let connection;
 
 	if (NODE_CONFIG.UPUSH !== undefined && NODE_CONFIG.UPUSH.ios !== undefined) {
 
@@ -22,11 +18,15 @@ UPUSH.IOS_PUSH = METHOD(function() {
 			production : NODE_CONFIG.UPUSH.isDebugMode !== true,
 			passphrase : NODE_CONFIG.UPUSH.ios.password
 		});
+		
+		connection.on('error', (error) => {
+			UPUSH.SHOW_ERROR('IOS_PUSH', error.toString());
+		});
 	}
 
 	return {
 
-		run : function(params) {
+		run : (params) => {
 			//REQUIRED: params
 			//REQUIRED: params.token
 			//OPTIONAL: params.badge
@@ -34,16 +34,12 @@ UPUSH.IOS_PUSH = METHOD(function() {
 			//REQUIRED: params.message
 			//OPTIONAL: params.data
 
-			var
-			// token
-			token = params.token,
+			let token = params.token;
 
-			// device
-			device = new apn.Device(token),
+			let device = new apn.Device(token);
 
-			// noti
-			noti = new apn.Notification();
-
+			let noti = new apn.Notification();
+			
 			noti.badge = params.badge;
 			noti.sound = params.sound;
 			noti.alert = params.message;

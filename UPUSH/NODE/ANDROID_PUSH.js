@@ -1,12 +1,8 @@
-UPUSH.ANDROID_PUSH = METHOD(function() {
-	'use strict';
+UPUSH.ANDROID_PUSH = METHOD(() => {
 
-	var
-	//IMPORT: node-gcm
-	gcm = require('node-gcm'),
+	let gcm = require('node-gcm');
 
-	// sender
-	sender;
+	let sender;
 
 	if (NODE_CONFIG.UPUSH !== undefined && NODE_CONFIG.UPUSH.android !== undefined) {
 		sender = new gcm.Sender(NODE_CONFIG.UPUSH.android.serverKey);
@@ -14,23 +10,20 @@ UPUSH.ANDROID_PUSH = METHOD(function() {
 
 	return {
 
-		run : function(params) {
+		run : (params) => {
 			//REQUIRED: params
 			//REQUIRED: params.regId
 			//OPTIONAL: params.data
 
-			var
-			// reg id
-			regId = params.regId,
+			let regId = params.regId;
 
-			// message
-			message = new gcm.Message({
+			let message = new gcm.Message({
 				delayWhileIdle : false,
 				timeToLive : 1800,
 				data : params.data
 			});
 
-			sender.send(message, [regId], 5, function(error, result) {
+			sender.send(message, [regId], 5, (error, result) => {
 				// ignore.
 			});
 		}
