@@ -1,6 +1,13 @@
 # UPUSH
 모바일 기기로 푸시 메시지를 보내는 기능을 담고 있습니다.
 
+## 설치하기
+1. 프로젝트의 `DEPENDENCY` 파일에 `Hanul/UPUSH`를 추가합니다.
+2. [`ubm`](https://www.npmjs.com/package/ubm)을 이용해 설치합니다.
+    ```
+    ubm install
+    ```
+
 ## 설정
 ```javascript
 BOOT({
