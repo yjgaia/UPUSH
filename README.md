@@ -4,9 +4,9 @@
 ## 설치하기
 1. 프로젝트의 `DEPENDENCY` 파일에 `Hanul/UPUSH`를 추가합니다.
 2. [`ubm`](https://www.npmjs.com/package/ubm)을 이용해 설치합니다.
-    ```
-    ubm install
-    ```
+	```
+	ubm install
+	```
 
 ## 설정
 ```javascript
