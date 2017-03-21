@@ -44,6 +44,12 @@ UPUSH.IOS_PUSH({
 });
 ```
 
+## API 문서
+[API](API/README.md)
+
+## 소스코드
+https://github.com/Hanul/UPUSH
+
 ## 라이센스
 [MIT](LICENSE)
 

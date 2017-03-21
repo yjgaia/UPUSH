@@ -4,6 +4,7 @@ require(process.env['UPPERCASE_IO_PATH'] + '/BOOT.js');
 
 BOOT({
 	CONFIG : {
+		defaultBoxName : 'UPUSH_SAMPLE',
 		isDevMode : true
 	},
 	NODE_CONFIG : {

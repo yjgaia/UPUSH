@@ -1,7 +1,6 @@
-TEST.MAIN = METHOD({
+UPUSH_SAMPLE.MAIN = METHOD({
 
-	run : function(workerData) {
-		'use strict';
+	run : (workerData) => {
 
 		if (workerData.id === 1) {
 
