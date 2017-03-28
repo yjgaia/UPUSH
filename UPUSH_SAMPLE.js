@@ -10,13 +10,13 @@ BOOT({
 	NODE_CONFIG : {
 		UPUSH : {
 			isDebugMode : true,
-			ios : {
+			Android : {
+				serverKey : '{{SERVER API ACCESS KEY}}'
+			},
+			IOS : {
 				certFilePath : '{{CERT(.pem) FILE PATH}}',
 				keyFilePath : '{{KEY(.pem) FILE PATH}}',
 				password : '{{비밀번호 있으면 지정}}'
-			},
-			android : {
-				serverKey : '{{SERVER API ACCESS KEY}}'
 			}
 		}
 	}

@@ -14,10 +14,10 @@ BOOT({
 	NODE_CONFIG : {
 		
 		UPUSH : {
-			android : {
+			Android : {
 				serverKey : '{{서버 키}}'
 			},
-			ios : {
+			IOS : {
 				certFilePath : '{{cert 파일 경로}}',
 				keyFilePath : '{{key 파일 경로}},
 				password : '{{비밀번호}}'
