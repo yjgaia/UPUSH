@@ -19,7 +19,7 @@ BOOT({
 			},
 			IOS : {
 				certFilePath : '{{cert 파일 경로}}',
-				keyFilePath : '{{key 파일 경로}},
+				keyFilePath : '{{key 파일 경로}}',
 				password : '{{비밀번호}}'
 			}
 		}
