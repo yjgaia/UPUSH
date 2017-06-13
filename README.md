@@ -2,11 +2,11 @@
 모바일 기기로 푸시 메시지를 보내는 기능을 담고 있습니다.
 
 ## 설치하기
-1. 프로젝트의 `DEPENDENCY` 파일에 `Hanul/UPUSH`를 추가합니다.
-2. [`ubm`](https://www.npmjs.com/package/ubm)을 이용해 설치합니다.
-	```
-	ubm install
-	```
+프로젝트의 `DEPENDENCY` 파일에 `Hanul/UPUSH`를 추가합니다.
+
+## 사용 전 준비사항
+- 안드로이드의 경우 Firebase 클라우드 메시징의 서버 키를 발급받습니다.
+- iOS의 경우 `cert.pem`과 `key.pem`을 만듭니다.
 
 ## 설정
 ```javascript
