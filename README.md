@@ -33,9 +33,8 @@ BOOT({
 UPUSH.ANDROID_PUSH({
 	regId : pushKeyData.androidKey,
 	data : {
-		message : message,
-		ntf_title : ntf_title,
-		ntf_message : ntf_message
+		title : title,
+		message : message
 	}
 });
 ```
