@@ -8,6 +8,11 @@
 - 안드로이드의 경우 Firebase 클라우드 메시징의 서버 키를 발급받습니다.
 - iOS의 경우 `cert.pem`과 `key.pem`을 만듭니다.
 
+```
+openssl pkcs12 -clcerts -nokeys -out cert.pem -in cert.p12
+openssl pkcs12 -nocerts -out key.pem -in key.p12
+```
+
 ## 설정
 ```javascript
 BOOT({
