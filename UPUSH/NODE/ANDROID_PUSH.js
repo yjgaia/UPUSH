@@ -19,11 +19,14 @@ UPUSH.ANDROID_PUSH = METHOD(() => {
 			//OPTIONAL: params.data
 
 			let regId = params.regId;
-
+			let data = params.data;
+			
+			data.channelId = NODE_CONFIG.UPUSH.Android.channelId;
+			
 			let message = new gcm.Message({
 				delayWhileIdle : false,
 				timeToLive : 1800,
-				data : params.data
+				data : data
 			});
 
 			sender.send(message, [regId], 5, (error, result) => {

@@ -44,7 +44,7 @@ UPUSH.IOS_PUSH = METHOD(() => {
 			let noti = new apn.Notification();
 			
 			noti.badge = params.badge;
-			noti.sound = params.sound;
+			noti.sound = 'ping.aiff';
 			noti.alert = params.message;
 			noti.payload = params.data === undefined ? {} : params.data;
 
