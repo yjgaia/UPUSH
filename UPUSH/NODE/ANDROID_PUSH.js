@@ -3,12 +3,12 @@
  */
 UPUSH.ANDROID_PUSH = METHOD(() => {
 
-	let gcm = require('node-gcm');
+	var FCM = require('fcm-node');
 
-	let sender;
+	let fcm;
 
 	if (NODE_CONFIG.UPUSH !== undefined && NODE_CONFIG.UPUSH.Android !== undefined) {
-		sender = new gcm.Sender(NODE_CONFIG.UPUSH.Android.serverKey);
+		fcm = new FCM(NODE_CONFIG.UPUSH.Android.serverKey);
 	}
 
 	return {
@@ -16,23 +16,20 @@ UPUSH.ANDROID_PUSH = METHOD(() => {
 		run : (params) => {
 			//REQUIRED: params
 			//REQUIRED: params.regId
-			//OPTIONAL: params.data
-			//OPTIONAL: params.data.channelId
+			//REQUIRED: params.title
+			//REQUIRED: params.message
 
 			let regId = params.regId;
-			let data = params.data;
-			
-			if (data.channelId === undefined) {
-				data.channelId = NODE_CONFIG.UPUSH.Android.channelId;
-			}
-			
-			let message = new gcm.Message({
-				delayWhileIdle : false,
-				timeToLive : 1800,
-				data : data
-			});
+			let title = params.title;
+			let message = params.message;
 
-			sender.send(message, [regId], 5, (error, result) => {
+			fcm.send({
+				to : regId,
+				notification : {
+					title : title,
+					body : message
+				}
+			}, (error, result) => {
 				// ignore.
 			});
 		}

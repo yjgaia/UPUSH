@@ -20,8 +20,7 @@ BOOT({
 		
 		UPUSH : {
 			Android : {
-				serverKey : '{{서버 키}}',
-				channelId : '{{푸시 채널 ID}}'
+				serverKey : '{{서버 키}}'
 			},
 			IOS : {
 				certFilePath : '{{cert 파일 경로}}',
