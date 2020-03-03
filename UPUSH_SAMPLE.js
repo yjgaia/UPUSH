@@ -16,7 +16,8 @@ BOOT({
 			IOS : {
 				certFilePath : '{{CERT(.pem) FILE PATH}}',
 				keyFilePath : '{{KEY(.pem) FILE PATH}}',
-				password : '{{비밀번호 있으면 지정}}'
+				password : '{{비밀번호 있으면 지정}}',
+				appBundleId : '{{App Bundle Id}}'
 			}
 		}
 	}

@@ -55,6 +55,9 @@ function handleError(call, error) {
     if (error.hasOwnProperty('details')) {
       status.details = error.details;
     }
+    if (status.code == constants.status.INTERNAL) {
+      common.log(constants.logVerbosity.ERROR, error);
+    }
   }
   if (error.hasOwnProperty('metadata')) {
     statusMetadata = error.metadata;
@@ -719,7 +722,8 @@ var streamHandlers = {
  * @memberof grpc
  * @constructor
  * @param {Object=} options Options that should be passed to the internal server
- *     implementation
+ *     implementation. The available options are listed in
+ *     [this document]{@link https://grpc.github.io/grpc/core/group__grpc__arg__keys.html}.
  * @example
  * var server = new grpc.Server();
  * server.addProtoService(protobuf_service_descriptor, service_implementation);
@@ -772,7 +776,7 @@ Server.prototype.start = function() {
       batch[grpc.opType.SEND_STATUS_FROM_SERVER] = {
         code: constants.status.UNIMPLEMENTED,
         details: 'RPC method not implemented ' + method,
-        metadata: {}
+        metadata: (new Metadata())._getCoreRepresentation()
       };
       batch[grpc.opType.RECV_CLOSE_ON_SERVER] = true;
       call.startBatch(batch, function() {});

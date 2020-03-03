@@ -161,8 +161,10 @@ Based on the great work on [fcm-push][7] by [Rasmunandar Rustam][4] cloned and m
 [14]: https://developers.google.com/instance-id/reference/server#create_relationship_maps_for_app_instances
 [15]: https://github.com/sofiapm
 [16]: https://github.com/crackjack
+[17]: https://github.com/cesardmoro
 
 ## Changelog
+1.5.2 - fixed bug whre send's callback were called twice - *Thanks to [@cesardmoro][17] for this fix*
 1.3.0 - Added proxy capabilities - *Thanks to [@crackjack][16] for this feature*
 1.2.0 - Added topic subscriptions management for web clients - *Thanks to [@sofiapm][15] for this feature*   
 1.1.0 - Support for the new firebase node.js sdk methods  
