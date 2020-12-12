@@ -13,7 +13,7 @@ UPUSH.ANDROID_PUSH = METHOD(() => {
 
 	return {
 
-		run : (params) => {
+		run: (params) => {
 			//REQUIRED: params
 			//REQUIRED: params.regId
 			//REQUIRED: params.title
@@ -24,10 +24,10 @@ UPUSH.ANDROID_PUSH = METHOD(() => {
 			let message = params.message;
 
 			fcm.send({
-				to : regId,
-				notification : {
-					title : title,
-					body : message
+				to: regId,
+				notification: {
+					title: title,
+					body: message
 				}
 			}, (error, result) => {
 				// ignore.
