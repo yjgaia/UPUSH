@@ -3,7 +3,7 @@
  */
 UPUSH.IOS_PUSH = METHOD(() => {
 
-	let apn = require('@parse/node-apn');
+	let apn = require('apn');
 
 	let apnProvider;
 
